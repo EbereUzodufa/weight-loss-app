@@ -1,0 +1,87 @@
+$spacing: 1, 2, 3, 4, 5;
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function getSpacingValue($space, $isReversed: false) {
+  @return 0.25rem * pow(2, $space - 1);
+}
+
+@mixin _spacingX($space, $isReversed: false) {
+  $value: pow(2, $space - 1);
+  @if $isReversed {
+    & > *:not(:last-child) {
+      margin-right: calc(0.25rem * #{$value});
+    }
+  } @else {
+    & > *:not(:first-child) {
+      margin-left: calc(0.25rem * #{$value});
+    }
+  }
+}
+
+@each $space in $spacing {
+  /*
+   * PADDING
+  */
+
+  .px-#{$space},
+  .pl-#{$space} {
+    padding-left: getSpacingValue($space);
+  }
+
+  .px-#{$space},
+  .pr-#{$space} {
+    padding-right: getSpacingValue($space);
+  }
+
+  .py-#{$space},
+  .pt-#{$space} {
+    padding-top: getSpacingValue($space);
+  }
+
+  .py-#{$space},
+  .pb-#{$space} {
+    padding-bottom: getSpacingValue($space);
+  }
+
+  /*
+   * MARGIN
+  */
+
+  .mx-#{$space},
+  .ml-#{$space} {
+    margin-left: getSpacingValue($space);
+  }
+
+  .mx-#{$space},
+  .mr-#{$space} {
+    margin-right: getSpacingValue($space);
+  }
+
+  .my-#{$space},
+  .mt-#{$space} {
+    margin-top: getSpacingValue($space);
+  }
+
+  .my-#{$space},
+  .mb-#{$space} {
+    margin-bottom: getSpacingValue($space);
+  }
+
+  .space-x-#{$space} {
+    @include _spacingX($space);
+  }
+  .space-reversed-x-#{$space} {
+    @include _spacingX($space, true);
+  }
+}

@@ -1,0 +1,23 @@
+.card {
+  border-radius: var(--border-radius, 1rem);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.875rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  &.card-layout__horizontal {
+    flex-direction: row;
+  }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  width: 100%;
+}
+
+.flex-1 {
+  flex: 1;
+}
