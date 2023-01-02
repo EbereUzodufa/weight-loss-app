@@ -6,8 +6,6 @@ $colors: (
   "primary-lime-green": "var(--primary-lime-green)",
   "secondary-purple": "var(--secondary-purple)",
   "secondary-lime-green": "var(--secondary-lime-green)",
-  "--progress-bar-value-color": "var(--primary-lime-green)",
-  "--progress-bar-background-color": "rgba(190, 179, 255,0.25)",
 );
 
 @each $color, $value in $colors {

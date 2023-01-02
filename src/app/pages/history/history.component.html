@@ -11,19 +11,23 @@
         </div>
 
         <div class="card card-layout__horizontal bg-white w-full mb-4">
-          <div class="flex flex-column">
+          <div class="flex flex-column w-full">
             <span>Weight</span>
-            <div class="weight-data flex flex-row">
+            <div class="weight-data chart-wrapper w-full">
               <span> 51,7 <span class="unit">kg</span> </span>
               <div class="chart">
-                <app-graph [graph]="graph" [ratio]="ratio"></app-graph>
+                <app-graph
+                  [graph]="graph"
+                  [ratio]="ratio"
+                  [showYLabel]="false"
+                ></app-graph>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="card card-layout__horizontal bg-white w-full">
-          <div class="flex flex-column">
+        <div class="card card-layout__horizontal bg-white w-full mb-4">
+          <div class="flex flex-column w-full">
             <div class="flex justify-content-between align-items-center mb-2">
               <span>BMI</span>
               <span
@@ -36,12 +40,28 @@
               </span>
             </div>
             <div class="bmi-scale">
-              <div class="low progress-bar" style="--progress-value: 30"></div>
+              <div
+                class="low progress-bar"
+                style="
+                  --progress-value: 30;
+                  --progress-bar-background-color: #e7ffb8;
+                "
+              ></div>
               <div
                 class="normal progress-bar"
-                style="--progress-value: 30"
+                style="
+                  --progress-value: 30;
+                  --progress-bar-value-color: #beb3ff;
+                "
               ></div>
-              <div class="High progress-bar" style="--progress-value: 30"></div>
+              <div
+                class="High progress-bar"
+                style="
+                  --progress-value: 30;
+                  --progress-bar-background-color: rgba(123, 102, 255, 0.25);
+                  --progress-bar-value-color: #7b66ff;
+                "
+              ></div>
             </div>
             <div class="bmi-scale-value">
               <div></div>
@@ -52,25 +72,41 @@
                 <span>25</span>
               </div>
             </div>
-            <div class="flex flex-wrap space-x-4 value-description">
+            <div
+              class="flex flex-wrap space-x-4 value-description align-items-center py-2"
+            >
               <span style="--dot-color: #c2ff4d">
                 <div class="dot"></div>
                 Low
               </span>
-              <span style="--dot-color: #c2ff4d">
+              <span style="--dot-color: #beb3ff">
                 <div class="dot"></div>
                 Normal
               </span>
-              <span style="--dot-color: #c2ff4d">
+              <span style="--dot-color: #7b66ff">
                 <div class="dot"></div>
-                Low
+                High
               </span>
             </div>
+          </div>
+        </div>
 
-            <div class="weight-data flex flex-row">
+        <div class="card card-layout__horizontal bg-white w-full mb-4">
+          <div class="flex flex-column w-full">
+            <span>Sleep</span>
+            <div class="sleep-data chart-wrapper w-full">
               <span> 51,7 <span class="unit">kg</span> </span>
               <div class="chart">
-                <app-graph [graph]="graph" [ratio]="ratio"></app-graph>
+                <app-graph
+                  [graph]="graph"
+                  [ratio]="ratio"
+                  [borderType]="'rounded'"
+                  [showYLabel]="false"
+                  style="
+                    --graph-high-value-color: #7b66ff;
+                    --graph-label-color: #323232;
+                  "
+                ></app-graph>
               </div>
             </div>
           </div>
