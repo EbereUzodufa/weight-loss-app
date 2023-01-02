@@ -12,6 +12,7 @@ import { Component, Input } from '@angular/core';
       }
       .material-symbols-outlined {
         color: inherit;
+        font-size: inherit;
       }
     `,
   ],

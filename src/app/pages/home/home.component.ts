@@ -38,6 +38,18 @@ export class HomeComponent implements OnInit {
       progressPercentage: '50',
     },
   ];
+
+  graph = {
+    tue: 10,
+    wed: 9,
+    thur: 5,
+    fri: 6,
+    sat: 8,
+    sun: 3,
+    mon: 4,
+  };
+  ratio = 2;
+
   constructor() {}
 
   ngOnInit(): void {}

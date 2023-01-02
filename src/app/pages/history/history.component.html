@@ -1,0 +1,81 @@
+<div class="flex justify-content-center">
+  <div class="container">
+    <div class="flex flex-column w-full px-3">
+      <div class="flex justify-content-between align-items-center">
+        <h3 class="heading-1">My Activity</h3>
+        <app-icon key="refresh"></app-icon>
+      </div>
+      <div class="mb-4">
+        <div class="flex justify-content-between align-items-center mb-4">
+          <h4>Monday, 2 Jan</h4>
+        </div>
+
+        <div class="card card-layout__horizontal bg-white w-full mb-4">
+          <div class="flex flex-column">
+            <span>Weight</span>
+            <div class="weight-data flex flex-row">
+              <span> 51,7 <span class="unit">kg</span> </span>
+              <div class="chart">
+                <app-graph [graph]="graph" [ratio]="ratio"></app-graph>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-layout__horizontal bg-white w-full">
+          <div class="flex flex-column">
+            <div class="flex justify-content-between align-items-center mb-2">
+              <span>BMI</span>
+              <span
+                class="flex flex-wrap justify-content-center align-items-center"
+                >17.3
+                <app-icon
+                  class="text-primary-purple"
+                  key="arrow_drop_up"
+                ></app-icon>
+              </span>
+            </div>
+            <div class="bmi-scale">
+              <div class="low progress-bar" style="--progress-value: 30"></div>
+              <div
+                class="normal progress-bar"
+                style="--progress-value: 30"
+              ></div>
+              <div class="High progress-bar" style="--progress-value: 30"></div>
+            </div>
+            <div class="bmi-scale-value">
+              <div></div>
+              <div class="flex flex-wrap">
+                <span>18.5</span>
+              </div>
+              <div class="flex flex-wrap">
+                <span>25</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap space-x-4 value-description">
+              <span style="--dot-color: #c2ff4d">
+                <div class="dot"></div>
+                Low
+              </span>
+              <span style="--dot-color: #c2ff4d">
+                <div class="dot"></div>
+                Normal
+              </span>
+              <span style="--dot-color: #c2ff4d">
+                <div class="dot"></div>
+                Low
+              </span>
+            </div>
+
+            <div class="weight-data flex flex-row">
+              <span> 51,7 <span class="unit">kg</span> </span>
+              <div class="chart">
+                <app-graph [graph]="graph" [ratio]="ratio"></app-graph>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

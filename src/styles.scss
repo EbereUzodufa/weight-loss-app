@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: "Jost", sans-serif;
   color: #323232;
@@ -53,5 +57,33 @@ body {
     transform: skew(25deg);
     right: 25px;
     left: auto;
+  }
+}
+
+.heading {
+  &-1 {
+    font-size: 1.5rem;
+  }
+
+  &-2 {
+    font-size: 1.25rem;
+  }
+}
+
+.progress-bar {
+  $rounded: var(--border-radius);
+  height: 0.5rem;
+  width: 100%;
+  border-radius: $rounded;
+  background: rgba($color: #beb3ff, $alpha: 0.25);
+  display: flex;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    height: 100%;
+    width: calc(var(--progress-value) * 1%);
+    border-radius: $rounded;
+    background: var(--primary-lime-green);
   }
 }
