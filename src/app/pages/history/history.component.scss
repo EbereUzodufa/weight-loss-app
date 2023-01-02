@@ -1,8 +1,13 @@
 :host {
+  .chart-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+
   .chart {
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
+    width: 100%;
   }
 
   .weight-data > span {
@@ -33,6 +38,23 @@
       span {
         margin-left: -#{$space / 1.5};
       }
+    }
+  }
+
+  .value-description {
+    span {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .dot {
+      $size: 0.5rem;
+      width: $size;
+      height: $size;
+      border-radius: 100%;
+      background: var(--dot-color);
+      margin-right: 0.5rem;
     }
   }
 }

@@ -75,7 +75,7 @@ body {
   height: 0.5rem;
   width: 100%;
   border-radius: $rounded;
-  background: rgba($color: #beb3ff, $alpha: 0.25);
+  background: var(--progress-bar-background-color);
   display: flex;
   overflow: hidden;
 
@@ -84,6 +84,6 @@ body {
     height: 100%;
     width: calc(var(--progress-value) * 1%);
     border-radius: $rounded;
-    background: var(--primary-lime-green);
+    background: var(--progress-bar-value-color);
   }
 }
