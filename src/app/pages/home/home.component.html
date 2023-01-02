@@ -1,0 +1,85 @@
+<div class="flex justify-content-center">
+  <div class="container">
+    <div class="flex flex-column w-full px-3">
+      <div class="flex justify-content-between align-items-center">
+        <h3 class="heading-1">My Activity</h3>
+        <img
+          src="assets/images/user.jpeg"
+          alt="user image"
+          height="35"
+          width="35"
+          class="user-img"
+        />
+      </div>
+
+      <div class="top-card space-x-3">
+        <div *ngFor="let activity of activityList" class="activity-card">
+          <ng-container
+            [ngTemplateOutlet]="cardTemplate"
+            [ngTemplateOutletContext]="{
+              $implicit: activity
+            }"
+          ></ng-container>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex justify-content-between align-items-center mb-2">
+          <h4>Goal for week</h4>
+          <a class="text-gray">42 of 54</a>
+        </div>
+        <div class="card card-layout__horizontal bg-primary-purple w-full">
+          <app-graph [graph]="graph" [ratio]="ratio"></app-graph>
+        </div>
+      </div>
+
+      <div class="trending-workout">
+        <div class="flex justify-content-between align-items-center mb-2">
+          <h4>Trending Workouts</h4>
+          <a class="text-gray">see all</a>
+        </div>
+        <div class="w-full">
+          <div
+            class="card card-layout__horizontal bg-white w-full align-items-center justify-content-between"
+          >
+            <div class="flex flex-wrap space-x-3 align-items-center mr-2">
+              <app-icon
+                class="text-primary-purple cycle-icon"
+                key="directions_bike"
+              ></app-icon>
+              <span class="title">Muscle Builder</span>
+            </div>
+            <app-icon
+              class="text-primary-lime-green play-icon"
+              key="play_circle"
+            ></app-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATES  -->
+
+<!-- CARD -->
+<ng-template #cardTemplate let-context>
+  <div class="card card-layout__horizontal bg-white w-full align-items-center">
+    <div class="mr-2">
+      <app-icon class="text-primary-purple" [key]="context.iconKey"></app-icon>
+    </div>
+    <div class="flex flex-column flex-1">
+      <span
+        ><span>{{ context.value }}</span>
+        <ng-container *ngIf="context?.unit">
+          {{ context.unit }}</ng-container
+        ></span
+      >
+      <span>{{ context.title }}</span>
+      <div
+        class="progress-bar"
+        style="--progress-value: {{ context.progressPercentage }}"
+      ></div>
+    </div>
+  </div>
+</ng-template>

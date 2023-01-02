@@ -1,0 +1,38 @@
+:host {
+  .chart {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .weight-data > span {
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
+  $space: 0.75rem;
+  $width: calc((100% - $space) / 3);
+
+  .bmi-scale {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > div {
+      width: $width;
+    }
+  }
+
+  .bmi-scale-value {
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+      width: calc((100%) / 3);
+      justify-content: start;
+
+      span {
+        margin-left: -#{$space / 1.5};
+      }
+    }
+  }
+}

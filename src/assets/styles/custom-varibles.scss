@@ -1,0 +1,17 @@
+:root {
+  --primary-purple: #7b66ff;
+  --primary-lime-green: #c2ff4d;
+  --primary-black: #323232;
+  --secondary-purple: #beb3ff;
+  --secondary-lime-green: #e7ffb8;
+  --white-background: #fafafa;
+  --border-radius: 1rem;
+  --graph-data-value-color: #beb3ff;
+  --graph-high-value-color: #c2ff4d;
+  --graph-label-color: #fff;
+}
+
+@import "./spacing";
+@import "./util";
+@import "./display";
+@import "./color";

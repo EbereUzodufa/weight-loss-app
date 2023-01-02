@@ -1,0 +1,58 @@
+<div
+  class="graph"
+  [ngClass]="{ 'show-x-label': showXLabel }"
+  style="
+--grid-row: repeat({{ rowLength + (showXLabel ? 2 : 0) }}, 1fr);
+--grid-column: repeat({{
+    (graph | keyvalue).length * 2 - 1 + (showYLabel ? 2 : 0)
+  }}, 1fr);
+--grid-data-row: repeat({{ rowLength }}, 1fr);
+--highest-limit: {{ higherLimit }};
+"
+>
+  <div class="data">
+    <ng-container *ngIf="showYLabel">
+      <div class="bar y-axis">
+        <!-- <div class="flex flex-column justify-content-end"> -->
+        <ng-container *ngFor="let number of rowArray; let i = index">
+          <span class="label">
+            {{ ratio * (rowArray.length - i) }}
+          </span>
+        </ng-container>
+        <!-- </div> -->
+      </div>
+      <div class="bar gap"></div>
+    </ng-container>
+    <ng-container *ngFor="let item of graph | keyvalue : sortOrder">
+      <div class="bar">
+        <div
+          class="value"
+          style="--height:{{ item.value - 1 }}"
+          [ngClass]="{
+            rounded: borderType === 'rounded',
+            partial: borderType === 'partial',
+            high: item.value >= thresshold
+          }"
+        ></div>
+      </div>
+      <div class="bar gap"></div>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="showXLabel">
+    <div class="x-axis">
+      <div class="space"></div>
+      <ng-container *ngIf="showYLabel">
+        <div></div>
+        <div></div>
+      </ng-container>
+      <!-- <div class="flex flex-column justify-content-end"> -->
+      <ng-container *ngFor="let item of graph | keyvalue : sortOrder">
+        <span class="label">
+          {{ item.key | slice : 0 : 1 }}
+        </span>
+        <div class="gap"></div>
+      </ng-container>
+      <!-- </div> -->
+    </div>
+  </ng-container>
+</div>

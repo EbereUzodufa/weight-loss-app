@@ -1,0 +1,88 @@
+:host {
+  .graph {
+    display: grid;
+    height: 12rem;
+    width: 100%;
+    grid-template-columns: var(--grid-column);
+    grid-template-rows: var(--grid-row);
+
+    &.show-x-label {
+      .data {
+        grid-row: 1/-2;
+      }
+    }
+
+    .data,
+    .x-axis {
+      display: grid;
+      width: 100%;
+      grid-template-columns: var(--grid-column);
+    }
+
+    .data {
+      grid-template-rows: var(--grid-data-row);
+      height: 100%;
+      grid-column: 1/-1;
+      grid-row: 1/-1;
+    }
+
+    .bar {
+      grid-row: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+
+      .value {
+        width: 100%;
+        height: calc(#{var(--height)} * 100% / #{var(--highest-limit)});
+        background: var(--graph-data-value-color);
+        margin-bottom: 0;
+        margin-top: auto;
+
+        &.rounded {
+          border-radius: var(--border-radius);
+        }
+
+        &.partial {
+          border-radius: var(--border-radius) var(--border-radius) 0.5rem 0.5rem;
+        }
+
+        &.high {
+          background: var(--graph-high-value-color);
+        }
+      }
+    }
+    .gap {
+      visibility: hidden;
+    }
+
+    .label {
+      width: 100%;
+      font-size: 0.75rem;
+      color: var(--graph-label-color);
+    }
+
+    .y-axis {
+      .label {
+        text-align: right;
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+      }
+    }
+
+    .x-axis {
+      grid-row-end: -1;
+      grid-column: 1/ -1;
+      grid-template-rows: repeat(2, 1fr);
+
+      .space {
+        grid-column: 1/-1;
+        grid-row: 1/-2;
+      }
+
+      .label {
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/custom-varibles.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  color: #323232;
+  height: 100vh;
+  width: 100vw;
+  background: var(--white-background);
+}
+
+.container {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.trapezoid {
+  display: block;
+  position: relative;
+
+  /* custom sizes */
+  width: 200px;
+  height: 50px;
+
+  &:before,
+  &:after {
+    background-color: #396;
+    border-radius: var(--border-radius);
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &:before {
+    transform: skew(-25deg);
+    left: 25px;
+  }
+
+  &:after {
+    transform: skew(25deg);
+    right: 25px;
+    left: auto;
+  }
+}
+
+.heading {
+  &-1 {
+    font-size: 1.5rem;
+  }
+
+  &-2 {
+    font-size: 1.25rem;
+  }
+}
+
+.progress-bar {
+  $rounded: var(--border-radius);
+  height: 0.5rem;
+  width: 100%;
+  border-radius: $rounded;
+  background: rgba($color: #beb3ff, $alpha: 0.25);
+  display: flex;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    height: 100%;
+    width: calc(var(--progress-value) * 1%);
+    border-radius: $rounded;
+    background: var(--primary-lime-green);
+  }
+}
